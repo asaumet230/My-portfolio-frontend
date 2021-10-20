@@ -1,29 +1,114 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+// Components
+import Layout from '../components/Layout';
+import AboutMe from '../components/AboutMe';
+import Skills from '../components/Skills';
+import Projects from '../components/Projects';
+import Experience from '../components/Experience';
+import Testimonial from '../components/Testimonial';
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["AUTO", "WEBP", "AVIF"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p>
-  </Layout>
-)
 
-export default IndexPage
+
+const Index = () => {
+
+
+  const dataIndex = useStaticQuery(graphql` 
+
+    query MyQuery {
+        allStrapiProjects {
+          edges {
+            node {
+                Description
+                Github
+                Link
+                Name
+                id
+                Image {
+                localFile {
+                    childImageSharp {
+                    gatsbyImageData
+                    }
+                  }
+                }
+                Technologies {
+                id
+                localFile {
+                    childrenImageSharp {
+                    gatsbyImageData(width: 70)
+                    }
+                  }
+                }
+
+              }
+            }
+          }
+       allStrapiSkills {
+          edges {
+            node {
+              Count
+              Name
+              Type
+              id
+              Image {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 70)
+                  }
+                }
+              }
+            }
+          }
+        }
+        allStrapiTestimonials {
+          edges {
+            node {
+              Avatar {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(width: 80)
+                  }
+                }
+              }
+              Linkedin
+              Name
+              Profession
+              Testimony
+              id
+            }
+          }
+        }
+         allStrapiExperiences {
+          edges {
+            node {
+              Company
+              Description
+              FinishDate
+              Location
+              StartDate
+              Type
+              Url
+              id
+            }
+          }
+        }
+    }
+  `); 
+
+
+  return ( 
+    <Layout>
+      
+      <AboutMe/>
+      <Skills skills={dataIndex.allStrapiSkills.edges}/>
+      <Projects projects={dataIndex.allStrapiProjects.edges}/>
+      <Experience experiences={dataIndex.allStrapiExperiences.edges}/>
+      <Testimonial testimonials={dataIndex.allStrapiTestimonials.edges}/>
+     
+    </Layout>
+   );
+}
+ 
+export default Index;
+

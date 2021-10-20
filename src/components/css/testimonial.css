@@ -1,0 +1,42 @@
+.avatar {
+  border-radius: 100%;
+}
+
+.arrow {
+  font-size: 7rem;
+  position: absolute;
+  cursor: pointer;
+  top: 44%;
+  color: black;
+  background-color: transparent;
+  border: none;
+}
+
+.left {
+  left: 15%;
+}
+
+.right {
+  right: 15%;
+}
+
+@media (max-width: 768px) {
+  .arrow {
+    font-size: 6rem;
+    top: 35%;
+  }
+
+  .left {
+    left: 2%;
+  }
+
+  .right {
+    right: 2%;
+  }
+}
+
+.profileIcons {
+  font-size: 3rem;
+  margin-right: 1rem;
+  color: black;
+}
