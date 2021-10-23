@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
 import axios from 'axios';
@@ -7,6 +8,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 import '../components/css/spinner.css'
 import Layout from '../components/Layout';
+import SeoComponent from '../components/SeoComponent';
 
 
 const ContactSection = styled.div`
@@ -121,7 +123,17 @@ const DivCaptcha = styled.div`
   margin: 2rem auto;
 `;
 
-const ContactPage = () => {  
+const ContactPage = () => { 
+  
+  const results = useStaticQuery(graphql`
+    query ContactPage {
+         site {
+          siteMetadata {
+            image
+         }
+       }
+     }
+  `);
 
   const [ userMessage, handleMessage ] = useState({
     userName:'',
@@ -145,6 +157,14 @@ const ContactPage = () => {
     })
 
   };
+
+  const otherData = {
+    title:'Contac Page | Andres Saumet Web Developer',
+    description: 'Contact page, write me and I will contact you soon',
+    image: results.site.siteMetadata.image,
+    url:'https://www.andressaumet.com/contact-page',
+    article: false
+}
 
 
   const sendForm = async (e) => {
@@ -203,6 +223,7 @@ const ContactPage = () => {
   return (
 
     <Layout>
+         <SeoComponent otherData={ otherData }/>
          <ContactSection>
           <h1>Contact Me</h1>
           <p>I'll answer you soon...</p>

@@ -4,6 +4,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
 
 import Layout from '../components/Layout';
+import SeoComponent from '../components/SeoComponent';
 
 const ErrorContainer = styled.div`
   max-width: 120rem;
@@ -49,9 +50,19 @@ const BtnError = styled(Link)`
 
 const PageNotFound = () => {
 
+
+  const otherData = {
+    title:'404 Page Not Found',
+    description: 'Error 404 page not found',
+    image: 'https://www.andressaumet.com/static/1770f491ce9c81400a3bd3cebebfd6fc/80e69/Error-404-page-not-found.webp',
+    url:'https://www.andressaumet.com/404',
+    article: false
+  }
+
   return (
 
     <Layout>
+      <SeoComponent otherData={ otherData }/>
       <ErrorContainer>
         <Image404>
          <StaticImage 

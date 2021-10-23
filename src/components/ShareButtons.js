@@ -66,14 +66,14 @@ const ShareButtons = ({ Title, Description, Banner, }) => {
             </Share>
 
             <FacebookShareButton 
-                url={`http://localhost:8000/blog/${ urlSlug( Title ) }`} 
+                url={`https://www.andressaumet.com/blog/${ urlSlug( Title ) }`} 
                 quote={ Description } 
                 hashtag={`#${ Title }`}>
                 <FacebookIcon size={45} round={true}/>
             </FacebookShareButton>
 
             <LinkedinShareButton
-                url={`http://localhost:8000/blog/${ urlSlug( Title ) }`}
+                url={`https://www.andressaumet.com/blog/${ urlSlug( Title ) }`}
                 title={ Title }
                 summary={ Description }
                 source= { 'Andres Saumet Portfolio' }>
@@ -81,26 +81,26 @@ const ShareButtons = ({ Title, Description, Banner, }) => {
             </LinkedinShareButton>
                     
             <PinterestShareButton
-                url={`http://localhost:8000/blog/${ urlSlug( Title ) }`}
+                url={`https://www.andressaumet.com/blog/${ urlSlug( Title ) }`}
                 description={ Description }
                 media={ Banner.localFile.childImageSharp.gatsbyImageData.images.fallback.src }>
                 <PinterestIcon size={45} round={true}/>
             </PinterestShareButton>
 
             <RedditShareButton 
-                url={`http://localhost:8000/blog/${ urlSlug( Title ) }`} 
+                url={`https://www.andressaumet.com/blog/${ urlSlug( Title ) }`} 
                 title={ Title }>
                 <RedditIcon size={45} round={true} />
             </RedditShareButton>
 
             <TelegramShareButton 
-                url={`http://localhost:8000/blog/${ urlSlug( Title ) }`} 
+                url={`https://www.andressaumet.com/blog/${ urlSlug( Title ) }`} 
                 title={ Title }>
                 <TelegramIcon size={45} round={true} />      
             </TelegramShareButton>
 
             <TwitterShareButton 
-                url={`http://localhost:8000/blog/${ urlSlug( Title ) }`} 
+                url={`https://www.andressaumet.com/blog/${ urlSlug( Title ) }`} 
                 title={ Title } 
                 via={ Description }
                 hashtags={ [`#${ Title }`] }>
@@ -108,7 +108,7 @@ const ShareButtons = ({ Title, Description, Banner, }) => {
             </TwitterShareButton>
 
             <WhatsappShareButton 
-                url={`http://localhost:8000/blog/${ urlSlug( Title ) }`} 
+                url={`https://www.andressaumet.com/blog/${ urlSlug( Title ) }`} 
                 title= { Title }>      
                 <WhatsappIcon size={45} round={true} />
             </WhatsappShareButton>

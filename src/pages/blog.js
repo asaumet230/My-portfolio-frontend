@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import urlSlug from 'url-slug'
 
 import Layout from '../components/Layout';
+import SeoComponent from '../components/SeoComponent';
 
 
 const BlogSection = styled.div`
@@ -91,7 +92,7 @@ const ButtonBlog = styled(Link)`
 const Blog = () => {
 
   const results = useStaticQuery(graphql`
-    query MyBlog{
+    query MyBlog {
       allStrapiArticles {
         edges {
           node {
@@ -109,13 +110,28 @@ const Blog = () => {
           }
         }
       }
+      site {
+        siteMetadata {
+          image
+        }
+      }
+
 }`);
 
 const articles = results.allStrapiArticles.edges;
 
+const otherData = {
+  title:'Blog | Andres Saumet Web Developer',
+  description: 'In this blog you will find the latest trends in software development, new tools for web development, new setups to improve productivity and topics related to avoiding work stress for software developers',
+  image: results.site.siteMetadata.image,
+  url:'https://www.andressaumet.com/blog',
+  article: false
+}
+
   return (
 
     <Layout>
+         <SeoComponent otherData={ otherData }/>
          <BlogSection>
           <h1>Blog</h1>
           <ul>

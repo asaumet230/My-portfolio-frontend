@@ -88,8 +88,6 @@ const Layout = ({children}) => {
 
     
         <Helmet>
-            <title>Andres Saumet | Full-Stack Developer</title>
-            <meta name="description" content="Portfolio Andres Saumet Full Stack Developer" />
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
             <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Roboto:wght@100;300;400;500;700;900&family=Bebas+Neue&family=Dancing+Script&family=Comfortaa:wght@300&family=Space+Mono&family=Ubuntu+Condensed&family=Gloria+Hallelujah&display=swap" rel="stylesheet" />

@@ -2,10 +2,12 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
+import urlSlug from 'url-slug';
 
 import Layout from './Layout';
 import SideBar from './SideBar';
 import ShareButtons from './ShareButtons';
+import SeoComponent from './SeoComponent';
 
 export const query = graphql`
     query MyArticle($id: String!) {
@@ -86,12 +88,21 @@ const Paragraph = styled.p`
 
 const Article = ({ data }) => {
 
-  const{ Title, Banner, Images, Description, Content  }=data.allStrapiArticles.nodes[0];
+  const{ Title, Banner, Images, Description, Content  }= data.allStrapiArticles.nodes[0];
   const paragraphs = Content.split('/');
+
+  const otherData = {
+        title: Title,
+        description: Description,
+        image: `https://www.andressaumet.com${Banner.localFile.childImageSharp.gatsbyImageData.images.fallback.src}`,
+        url:`https://www.andressaumet.com/blog/${urlSlug(Title)}`,
+        article: true
+    }
 
     return(
 
         <Layout>
+            <SeoComponent otherData={ otherData }/>
             <ArticleContainer>
                 <ArticleTitle>{ Title } </ArticleTitle>
 

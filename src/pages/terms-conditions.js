@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { v4 as uuidv4 } from 'uuid';
 
 import Layout from '../components/Layout';
+import SeoComponent from '../components/SeoComponent';
 
 
 const TermsDiv = styled.div`
@@ -37,15 +38,29 @@ const TemrsConditions = () => {
                 Content
                 Title
             }
+            site {
+            siteMetadata {
+                image
+            }
         }
+    }
     `);
 
     const{ Title, Content } = data.strapiTerms;
     const paragraphs = Content.split('///');
 
+    const otherData = {
+        title:'Terms and Conditions',
+        description: 'on this page you will find our terms and conditions',
+        image: data.site.siteMetadata.image,
+        url:'https://www.andressaumet.com/terms-conditions',
+        article: false
+    }
+
     return(
 
         <Layout>
+            <SeoComponent otherData={ otherData }/>
             <TermsDiv>
 
                 <h1>{ Title }</h1>

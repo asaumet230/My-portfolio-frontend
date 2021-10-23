@@ -3,13 +3,12 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 // Components
 import Layout from '../components/Layout';
+import SeoComponent from '../components/SeoComponent';
 import AboutMe from '../components/AboutMe';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 import Experience from '../components/Experience';
 import Testimonial from '../components/Testimonial';
-
-
 
 const Index = () => {
 
@@ -96,10 +95,11 @@ const Index = () => {
     }
   `); 
 
+  const otherData='';
 
   return ( 
     <Layout>
-      
+      <SeoComponent otherData={otherData}/>
       <AboutMe/>
       <Skills skills={dataIndex.allStrapiSkills.edges}/>
       <Projects projects={dataIndex.allStrapiProjects.edges}/>

@@ -1,9 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Andres Saumet | Full-Stack Developer`,
+    description: `Andres Saumet web developer, with experience in programming languages such as javascript and python. I also use languages such as HTML5, CSS3, SCRUM methodology for teamwork and I speak two languages English and Spanish.`,
+    author: `Andres Saumet`,
+    image: 'https://www.andressaumet.com/static/6b0a6b8c91766268e15a50aa67f2ae81/3cd29/PhotoMe-background-2.webp',
+    siteUrl: `https://www.andressaumet.com`,
+    twitterUsername: '@SaumetAndres'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
