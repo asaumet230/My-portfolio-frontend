@@ -1,11 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `Andres Saumet | Full-Stack Developer`,
+    title:`Andres Saumet | Full-Stack Developer`,
     description: `Andres Saumet web developer, with experience in programming languages such as javascript and python. I also use languages such as HTML5, CSS3, SCRUM methodology for teamwork and I speak two languages English and Spanish.`,
     author: `Andres Saumet`,
     image: 'https://www.andressaumet.com/static/6b0a6b8c91766268e15a50aa67f2ae81/3cd29/PhotoMe-background-2.webp',
     siteUrl: `https://www.andressaumet.com`,
-    twitterUsername: '@SaumetAndres'
+    twitterUsername: '@SaumetAndres',
+    keywords:["Web Developer", "Andres Saumet", "Developer", "Angular FrameWork", "React Js Framework", "HTML5", "CSS3", "JavaScript", "Phyton", "Bootstrap Framework", "Web Design", "Tailwind Framwork"],
+    robots: `index, follow`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -50,7 +52,7 @@ module.exports = {
     resolve: `gatsby-source-strapi`,
     options: {
         apiURL: `http://localhost:1337`,
-        queryLimit: 1000, // Defaults to 100
+        queryLimit: 1500, // Defaults to 100
         collectionTypes: [`Projects`, `Skills`,`Experiences`,`Testimonials`, `Articles`, `Terms`],
       },
     },
@@ -70,6 +72,7 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-sitemap`
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-robots-txt`
   ]
 }

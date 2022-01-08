@@ -28,7 +28,9 @@ const PrivacyPolicy = () => {
         description: 'on this page you will find our privacy policy',
         image: data.site.siteMetadata.image,
         url:'https://www.andressaumet.com/PrivacyPolicy',
-        article: false
+        article: false,
+        keywords: [ ],
+        robots: `index, follow`
     }
 
     return(

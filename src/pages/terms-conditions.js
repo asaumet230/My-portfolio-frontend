@@ -54,7 +54,9 @@ const TemrsConditions = () => {
         description: 'on this page you will find our terms and conditions',
         image: data.site.siteMetadata.image,
         url:'https://www.andressaumet.com/terms-conditions',
-        article: false
+        article: false,
+        keywords: [ ],
+        robots: `index, follow`
     }
 
     return(

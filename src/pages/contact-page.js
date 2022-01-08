@@ -163,7 +163,9 @@ const ContactPage = () => {
     description: 'Contact page, write me and I will contact you soon',
     image: results.site.siteMetadata.image,
     url:'https://www.andressaumet.com/contact-page',
-    article: false
+    article: false,
+    keywords: [ ],
+    robots: `index, follow`
 }
 
 

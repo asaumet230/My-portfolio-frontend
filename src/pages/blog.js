@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, Link, useStaticQuery  } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
 import urlSlug from 'url-slug'
@@ -118,49 +118,52 @@ const Blog = () => {
 
 }`);
 
-const articles = results.allStrapiArticles.edges;
+  const articles = results.allStrapiArticles.edges;
 
-const otherData = {
-  title:'Blog | Andres Saumet Web Developer',
-  description: 'In this blog you will find the latest trends in software development, new tools for web development, new setups to improve productivity and topics related to avoiding work stress for software developers',
-  image: results.site.siteMetadata.image,
-  url:'https://www.andressaumet.com/blog',
-  article: false
-}
+  const otherData = {
+    title: 'Blog | Andres Saumet Web Developer',
+    description: 'In this blog you will find the latest trends in software development, new tools for web development, new setups to improve productivity and topics related to avoiding work stress for software developers',
+    image: results.site.siteMetadata.image,
+    url: 'https://www.andressaumet.com/blog',
+    article: false,
+    keywords: ['Blog', 'Technology', 'Developers', 'Web Design', 'UI | UX', 'Angular', 'Devices for work', 'React Js', 'Javascript', 'Health At Work'],
+    robots: `index, follow`
+  }
 
   return (
 
     <Layout>
-         <SeoComponent otherData={ otherData }/>
-         <BlogSection>
-          <h1>Blog</h1>
-          <ul>
 
-            { articles.map( article => (
+      <SeoComponent otherData={otherData} />
+      <BlogSection>
+        <h1>Blog</h1>
+        <ul>
 
-              <li key={ article.node.id }>
-                <BlogContainer>
-                  <GatsbyImage image={ article.node.Banner.localFile.childImageSharp.gatsbyImageData } alt={ article.node.Title }/>
-                  <BlogBody>
-                    <p className="autor"> By: <span>{ article.node.Author }.</span></p>
-                    <h2>{ article.node.Title }</h2>
-                    <p className="article">{ article.node.Description }</p>
-                    <div>
-                      <ButtonBlog  
-                        to={ `/blog/${urlSlug( article.node.Title)}` }>
-                          Read More 
-                      </ButtonBlog>
-                    </div>
-                  </BlogBody>
+          {articles.map(article => (
+
+            <li key={article.node.id}>
+              <BlogContainer>
+                <GatsbyImage image={article.node.Banner.localFile.childImageSharp.gatsbyImageData} alt={article.node.Title} />
+                <BlogBody>
+                  <p className="autor"> By: <span>{article.node.Author}.</span></p>
+                  <h2>{article.node.Title}</h2>
+                  <p className="article">{article.node.Description}</p>
+                  <div>
+                    <ButtonBlog
+                      to={`/blog/${urlSlug(article.node.Title)}`}>
+                      Read More
+                    </ButtonBlog>
+                  </div>
+                </BlogBody>
               </BlogContainer>
-              </li>
-            ))}
-           
-          </ul>
-         </BlogSection>
+            </li>
+          ))}
+
+        </ul>
+      </BlogSection>
     </Layout>
 
-   
+
   )
 
 }

@@ -15,6 +15,7 @@ export const query = graphql`
             nodes {
             Title
             Description
+            keywords
             Banner {
                 localFile {
                     childImageSharp {
@@ -88,86 +89,88 @@ const Paragraph = styled.p`
 
 const Article = ({ data }) => {
 
-  const{ Title, Banner, Images, Description, Content  }= data.allStrapiArticles.nodes[0];
-  const paragraphs = Content.split('/');
+    const { Title, Banner, Images, Description, Content, keywords } = data.allStrapiArticles.nodes[0];
+    const paragraphs = Content.split('/');
 
-  const otherData = {
+    const otherData = {
         title: Title,
         description: Description,
         image: `https://www.andressaumet.com${Banner.localFile.childImageSharp.gatsbyImageData.images.fallback.src}`,
-        url:`https://www.andressaumet.com/blog/${urlSlug(Title)}`,
-        article: true
+        url: `https://www.andressaumet.com/blog/${urlSlug(Title)}`,
+        article: true,
+        keywords,
+        robots: `index, follow`
     }
 
-    return(
+    return (
 
         <Layout>
-            <SeoComponent otherData={ otherData }/>
+            <SeoComponent otherData={otherData} />
             <ArticleContainer>
-                <ArticleTitle>{ Title } </ArticleTitle>
+                <ArticleTitle>{Title} </ArticleTitle>
 
-                <ShareButtons 
-                    Title={ Title }
-                    Description={ Description }
-                    Banner= { Banner }/>
+                <ShareButtons
+                    Title={Title}
+                    Description={Description}
+                    Banner={Banner} />
 
                 <ArticleBody>
                     <div >
                         <BannerDiv>
-                            <BannerArticle 
-                                image={ Banner.localFile.childImageSharp.gatsbyImageData } 
-                                alt={Title}/>
+                            <BannerArticle
+                                image={Banner.localFile.childImageSharp.gatsbyImageData}
+                                alt={Title} />
                         </BannerDiv>
 
-                        <Paragraph>{ paragraphs[0] }</Paragraph>
+                        <Paragraph>{paragraphs[0]}</Paragraph>
 
-                        { paragraphs[0] !== undefined ?
-                        
-                        (
-                            <BannerDiv>  
-                                <BannerArticle 
-                                    image={ Images[0].localFile.childrenImageSharp[0].gatsbyImageData } 
-                                    alt="hola"/>
-                            </BannerDiv>
+                        {paragraphs[0] !== undefined ?
 
-                        ) : null }
-                       
-                        <Paragraph>{ paragraphs[1] }</Paragraph>
+                            (
+                                <BannerDiv>
+                                    <BannerArticle
+                                        image={Images[0].localFile.childrenImageSharp[0].gatsbyImageData}
+                                        alt={Title} />
+                                </BannerDiv>
 
-                         { paragraphs[1] !== undefined ? 
-                         (
-                            <BannerDiv>  
-                                <BannerArticle 
-                                    image={ Images[1].localFile.childrenImageSharp[0].gatsbyImageData } 
-                                    alt="hola"/>
-                            </BannerDiv>
+                            ) : null}
 
-                        ): null}
+                        <Paragraph>{paragraphs[1]}</Paragraph>
 
-                        <Paragraph>{ paragraphs[2] }</Paragraph>
+                        {paragraphs[1] !== undefined ?
+                            (
+                                <BannerDiv>
+                                    <BannerArticle
+                                        image={Images[1].localFile.childrenImageSharp[0].gatsbyImageData}
+                                        alt={Title} />
+                                </BannerDiv>
 
-                        { paragraphs[2] !== undefined ?
-                        (
-                            <BannerDiv>  
-                                <BannerArticle 
-                                    image={ Images[2].localFile.childrenImageSharp[0].gatsbyImageData } 
-                                    alt="hola"/>
-                            </BannerDiv>
+                            ) : null}
 
-                        ): null }
+                        <Paragraph>{paragraphs[2]}</Paragraph>
 
-                        <Paragraph>{ paragraphs[3] }</Paragraph>
+                        {paragraphs[2] !== undefined ?
+                            (
+                                <BannerDiv>
+                                    <BannerArticle
+                                        image={Images[2].localFile.childrenImageSharp[0].gatsbyImageData}
+                                        alt={Title} />
+                                </BannerDiv>
 
-                        <Paragraph>{ paragraphs[4] }</Paragraph>
+                            ) : null}
 
-                        <Paragraph>{ paragraphs[5] }</Paragraph>
-                      
-                       
-                      
+                        <Paragraph>{paragraphs[3]}</Paragraph>
+
+                        <Paragraph>{paragraphs[4]}</Paragraph>
+
+                        <Paragraph>{paragraphs[5]}</Paragraph>
+
+
+
                     </div>
-                    
-                    <SideBar/>
-                    
+
+                    <SideBar />
+
                 </ArticleBody>
             </ArticleContainer>
         </Layout>

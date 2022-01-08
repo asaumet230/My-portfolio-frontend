@@ -56,7 +56,9 @@ const PageNotFound = () => {
     description: 'Error 404 page not found',
     image: 'https://www.andressaumet.com/static/1770f491ce9c81400a3bd3cebebfd6fc/80e69/Error-404-page-not-found.webp',
     url:'https://www.andressaumet.com/404',
-    article: false
+    article: false,
+    keywords: [ ],
+    robots: `index, nofollow`
   }
 
   return (

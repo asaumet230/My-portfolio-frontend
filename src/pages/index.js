@@ -93,22 +93,23 @@ const Index = () => {
           }
         }
     }
-  `); 
+  `);
 
-  const otherData='';
+  const otherData = '';
 
-  return ( 
+  return (
     <Layout>
-      <SeoComponent otherData={otherData}/>
-      <AboutMe/>
-      <Skills skills={dataIndex.allStrapiSkills.edges}/>
-      <Projects projects={dataIndex.allStrapiProjects.edges}/>
-      <Experience experiences={dataIndex.allStrapiExperiences.edges}/>
-      <Testimonial testimonials={dataIndex.allStrapiTestimonials.edges}/>
-     
+
+      <SeoComponent otherData={otherData} />
+      <AboutMe />
+      <Skills skills={dataIndex.allStrapiSkills.edges} />
+      <Projects projects={dataIndex.allStrapiProjects.edges} />
+      <Experience experiences={dataIndex.allStrapiExperiences.edges} />
+      <Testimonial testimonials={dataIndex.allStrapiTestimonials.edges} />
+
     </Layout>
-   );
+  );
 }
- 
+
 export default Index;
 
