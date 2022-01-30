@@ -9,6 +9,9 @@ module.exports = {
     keywords:["Web Developer", "Andres Saumet", "Developer", "Angular FrameWork", "React Js Framework", "HTML5", "CSS3", "JavaScript", "Phyton", "Bootstrap Framework", "Web Design", "Tailwind Framwork"],
     robots: `index, follow`
   },
+  flags: {
+  THE_FLAG: false
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,

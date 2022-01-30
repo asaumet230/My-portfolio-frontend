@@ -84,7 +84,7 @@ const LocationDivIcons = styled.div`
     }
 `;
 
-const URL = styled.p`
+const Url = styled.p`
     text-align: center;
     margin: 1rem;
 
@@ -106,13 +106,13 @@ const URL = styled.p`
 
 
 
-const Experience = ({experiences}) => {
-  
-    const careers = experiences.filter( experience => ( experience.node.Type === 'Career'));
-    const education = experiences.filter( experience => ( experience.node.Type === 'Education'));
-    
+const Experience = ({ experiences }) => {
 
-    return(
+    const careers = experiences.filter(experience => (experience.node.Type === 'Career'));
+    const education = experiences.filter(experience => (experience.node.Type === 'Education'));
+
+
+    return (
 
         <ExperienceSection>
             <ExperiencesDiv>
@@ -120,55 +120,55 @@ const Experience = ({experiences}) => {
 
                 <div>
                     <TitleSection>Career</TitleSection>
-                    { careers.map( career => (
+                    {careers.map(career => (
 
                         <SingleDivExperience key={career.node.id}>
-                        <div>
-                            <CompanyTitle>Company: <span>{career.node.Company}</span> </CompanyTitle>
-                            
-                            <p css= {
-                                css`
+                            <div>
+                                <CompanyTitle>Company: <span>{career.node.Company}</span> </CompanyTitle>
+
+                                <p css={
+                                    css`
                                     text-align: justify;
                                     margin-top: 1rem;
                                     margin-bottom: 0;
                                 `
-                            }>
-                               {career.node.Description}.
-                            </p>
-                            <URL>URL:<a href={career.node.Url} target="_blank" rel="noreferrer noopener"> Click Here</a></URL>
-                            <LocationDivIcons>
-                                <Paragraph> <i className="fas fa-calendar-alt"></i> Date: <span>{career.node.StartDate} </span>  <span className="to">To</span>  <span>{career.node.FinishDate}</span> </Paragraph>
-                                <Paragraph> <i className="fas fa-map-marker-alt"></i>Location: <span>{career.node.Location}</span></Paragraph>
-                            </LocationDivIcons>
-                        </div>
-                    </SingleDivExperience>
+                                }>
+                                    {career.node.Description}.
+                                </p>
+                                <Url>URL:<a href={career.node.Url} target="_blank" rel="noreferrer noopener"> Click Here</a></Url>
+                                <LocationDivIcons>
+                                    <Paragraph> <i className="fas fa-calendar-alt"></i> Date: <span>{career.node.StartDate} </span>  <span className="to">To</span>  <span>{career.node.FinishDate}</span> </Paragraph>
+                                    <Paragraph> <i className="fas fa-map-marker-alt"></i>Location: <span>{career.node.Location}</span></Paragraph>
+                                </LocationDivIcons>
+                            </div>
+                        </SingleDivExperience>
                     ))}
                 </div>
 
                 <div>
                     <TitleSection>Education</TitleSection>
-                     
-                     {education.map(education => (
+
+                    {education.map(education => (
                         <SingleDivExperience key={education.node.id}>
                             <div>
                                 <CompanyTitle>Company: <span>{education.node.Company}</span> </CompanyTitle>
-                                <p css= {
+                                <p css={
                                     css`
                                         text-align: justify;
                                     `
                                 }>
                                     {education.node.Description}
                                 </p>
-                    
-                                <URL>URL:<a href={education.node.Url} target="_blank" rel="noreferrer noopener"> click Here</a></URL>
+
+                                <Url>URL:<a href={education.node.Url} target="_blank" rel="noreferrer noopener"> click Here</a></Url>
                                 <LocationDivIcons>
-                                   <Paragraph> <i className="fas fa-calendar-alt"></i> Date: <span>{education.node.StartDate} </span>  <span className="to">To</span>  <span>{education.node.FinishDate}</span> </Paragraph>
-                                 <Paragraph> <i className="fas fa-map-marker-alt"></i>Location: <span>{education.node.Location}</span></Paragraph>
+                                    <Paragraph> <i className="fas fa-calendar-alt"></i> Date: <span>{education.node.StartDate} </span>  <span className="to">To</span>  <span>{education.node.FinishDate}</span> </Paragraph>
+                                    <Paragraph> <i className="fas fa-map-marker-alt"></i>Location: <span>{education.node.Location}</span></Paragraph>
                                 </LocationDivIcons>
                             </div>
-                        </SingleDivExperience> 
-                     ))}
-                    
+                        </SingleDivExperience>
+                    ))}
+
 
                 </div>
 
@@ -176,7 +176,7 @@ const Experience = ({experiences}) => {
 
             </ExperiencesDiv>
         </ExperienceSection>
-        
+
 
     );
 }
